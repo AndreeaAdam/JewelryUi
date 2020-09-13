@@ -1,0 +1,23 @@
+<div class="gemstones">
+  <div class="gemstone">
+    <p-table class="ptable" [value]="gemstones">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-gemstone>
+        <tr>
+          <td>{{gemstone.id}}</td>
+          <td>{{gemstone.name}}</td>
+          <td>
+            <a [routerLink]="'/gemstones-edit/' + gemstone.id">Edit</a>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

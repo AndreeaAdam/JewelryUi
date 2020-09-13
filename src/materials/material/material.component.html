@@ -1,0 +1,22 @@
+<div class="materials">
+  <div class="material">
+    <p-table class="ptable" [value]="materials">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-material>
+        <tr>
+          <td>{{material.id}}</td>
+          <td>{{material.name}}</td>
+          <td>
+            <a [routerLink]="'/materials-edit/' + material.id">Edit</a>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

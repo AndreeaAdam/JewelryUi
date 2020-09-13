@@ -1,0 +1,14 @@
+.edit-gemstone {
+  display: flex;
+  flex-flow: row wrap;
+  width: 45%;
+  padding-top: 50px;
+  justify-self: center;
+  align-self: center;
+}
+
+label {
+  width: 50px;
+  text-align: center;
+  padding-top: 10px;
+}

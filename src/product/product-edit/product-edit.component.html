@@ -1,0 +1,14 @@
+<div class="edit-product">
+
+  <label>Name<input type="text" pInputText [(ngModel)]="product.name"/></label>
+  <label>Price<input type="text" pInputText [(ngModel)]="product.price"/></label>
+  <label>Description<input type="text" pInputText [(ngModel)]="product.description"/></label>
+  <label>Detail<input type="text" pInputText [(ngModel)]="product.detail"/></label>
+  <label>Quantity<input type="text" pInputText [(ngModel)]="product.quantity"/></label>
+  <label>Category
+    <p-dropdown [options]="categories" [(ngModel)]="product.categoryId"></p-dropdown>
+  </label>
+  <label>Gender
+    <p-dropdown [options]="genders" [(ngModel)]="product.genderId"></p-dropdown>
+  </label>
+</div>
