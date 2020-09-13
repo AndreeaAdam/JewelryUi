@@ -7,7 +7,7 @@ import {Category} from '../../model/category';
   styleUrls: ['./category-edit.component.css']
 })
 export class CategoryEditComponent implements OnInit {
-  public category: Category;
+  public category: Category = new Category();
 
   constructor() {
   }

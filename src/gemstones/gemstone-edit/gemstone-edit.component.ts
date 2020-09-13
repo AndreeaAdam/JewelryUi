@@ -7,7 +7,7 @@ import {Gemstone} from '../../model/gemstone';
   styleUrls: ['./gemstone-edit.component.css']
 })
 export class GemstoneEditComponent implements OnInit {
-  public gemstone: Gemstone;
+  public gemstone: Gemstone = new Gemstone();
 
   constructor() {
   }

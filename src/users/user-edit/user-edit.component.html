@@ -5,6 +5,6 @@
   <label>First name<input type="text" pInputText [(ngModel)]="user.firstname"/></label>
   <label>Last name<input type="text" pInputText [(ngModel)]="user.lastname"/></label>
   <label>Telephone<input type="text" pInputText [(ngModel)]="user.telephone"/></label>
-  <label>Email<input type="text" [(ngModel)]="user.email"/></label>
-  <label>Is administrator<input type="text" [(ngModel)]="user.isAdministrator"/></label>
+  <label>Email<input type="text" pInputText [(ngModel)]="user.email"/></label>
+  <label>Is administrator  <p-checkbox [(ngModel)]="user.isAdministrator"></p-checkbox></label>
 </div>

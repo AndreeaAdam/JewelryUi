@@ -18,7 +18,6 @@ import {ButtonModule} from 'primeng/button';
     FormsModule,
     InputTextModule,
     ButtonModule
-
   ]
 })
 export class CategoriesModule {

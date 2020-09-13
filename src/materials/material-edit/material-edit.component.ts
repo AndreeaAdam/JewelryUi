@@ -7,7 +7,7 @@ import {Material} from '../../model/material';
   styleUrls: ['./material-edit.component.css']
 })
 export class MaterialEditComponent implements OnInit {
-  public material: Material;
+  public material: Material = new Material();
 
   constructor() {
   }

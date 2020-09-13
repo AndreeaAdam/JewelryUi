@@ -7,7 +7,7 @@ import {User} from '../../model/user';
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent implements OnInit {
-  public user: User;
+  public user: User = new User();
 
   constructor() {
   }
