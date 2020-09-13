@@ -1,0 +1,31 @@
+.app-header {
+  display: flex;
+  flex-flow: row wrap;
+}
+.app-header-vertical {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.app-logo {
+  width: 120px;
+  height: 120px;
+  background-image: url("../assets/logo.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.app-menu {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center; /* vertically center */
+  /*justify-content: center; !* horizontally center *!*/
+}
+.app-menu-vertical {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.app-menu-link {
+  padding-left: 5px;
+  padding-right: 5px;
+}
