@@ -1,5 +1,6 @@
-export class Product {
-  public id: number;
+import {GenericModel} from './generic-model';
+
+export class Product extends GenericModel{
   public name: string;
   public price: number;
   public description: string;

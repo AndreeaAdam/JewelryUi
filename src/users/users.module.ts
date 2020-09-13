@@ -9,6 +9,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
 
+
 @NgModule({
   declarations: [UserComponent, UserEditComponent],
   imports: [

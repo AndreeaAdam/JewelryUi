@@ -1,5 +1,6 @@
-export class User {
-  public id: number;
+import {GenericModel} from './generic-model';
+
+export class User extends GenericModel{
   public username: string;
   public password: string;
   public firstname: string;

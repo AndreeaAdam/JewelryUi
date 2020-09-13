@@ -6,9 +6,21 @@
   <label>Detail<input type="text" pInputText [(ngModel)]="product.detail"/></label>
   <label>Quantity<input type="text" pInputText [(ngModel)]="product.quantity"/></label>
   <label>Category
-    <p-dropdown [options]="categories" [(ngModel)]="product.categoryId"></p-dropdown>
+    <p-dropdown
+      [options]="categories"
+      [(ngModel)]="product.categoryId"
+      optionLabel="name"
+      dataKey="id"
+    ></p-dropdown>
   </label>
   <label>Gender
-    <p-dropdown [options]="genders" [(ngModel)]="product.genderId"></p-dropdown>
+    <p-dropdown
+      [options]="genders"
+      [(ngModel)]="product.genderId"
+      optionLabel="type"
+      dataKey="id"
+    ></p-dropdown>
   </label>
+  <button pButton type="button" label="Save" (click)="save()"></button>
+  <button pButton type="button" label="Cancel" (click)="cancel()"></button>
 </div>

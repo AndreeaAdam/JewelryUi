@@ -13,6 +13,7 @@ import {CategoriesModule} from '../categories/categories.module';
 import {MaterialsModule} from '../materials/materials.module';
 import {UsersModule} from '../users/users.module';
 import {GemstonesModule} from '../gemstones/gemstones.module';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,12 @@ import {GemstonesModule} from '../gemstones/gemstones.module';
     CategoriesModule,
     MaterialsModule,
     UsersModule,
-    GemstonesModule
+    GemstonesModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
