@@ -17,10 +17,10 @@
       <ng-template pTemplate="body" let-user>
         <tr>
           <td>{{user.id}}</td>
-          <td>{{user.username}}</td>
+          <td>{{user.userName}}</td>
           <td>{{user.password}}</td>
-          <td>{{user.firstname}}</td>
-          <td>{{user.lastname}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
           <td>{{user.telephone}}</td>
           <td>{{user.email}}</td>
           <td>{{user.isAdministrator}}</td>
@@ -31,4 +31,6 @@
       </ng-template>
     </p-table>
   </div>
+  <button pButton type="button" label="Add" (click)="add()"></button>
+
 </div>

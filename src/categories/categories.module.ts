@@ -7,6 +7,7 @@ import {TableModule} from 'primeng/table';
 import {FormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
+import {CategoriesService} from '../services/categories.service';
 
 
 @NgModule({
@@ -18,6 +19,9 @@ import {ButtonModule} from 'primeng/button';
     FormsModule,
     InputTextModule,
     ButtonModule
+  ],
+  providers: [
+    CategoriesService
   ]
 })
 export class CategoriesModule {

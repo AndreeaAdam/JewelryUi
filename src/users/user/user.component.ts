@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../model/user';
+import {Router} from '@angular/router';
+import {ProductsService} from '../../services/products.service';
+import {UsersService} from '../../services/users.service';
 
 @Component({
   selector: 'app-user',
@@ -7,23 +10,19 @@ import {User} from '../../model/user';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  public users: User[] = [
-    {
-      id: 1,
-      username: 'andreea',
-      password: '12345',
-      firstname: 'Andreea',
-      lastname: 'Adam',
-      telephone: '0784192326',
-      email: 'andreea.adam21@yahoo.com',
-      isAdministrator: true
-    }
-  ];
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private service: UsersService) {
   }
+  public users: User[] = [];
 
   ngOnInit(): void {
+    this.service.getAll().subscribe(value => this.users = value);
+  }
+  add(): void {
+    const url = '/users-edit/0';
+    this.router.navigateByUrl(url);
   }
 
 }

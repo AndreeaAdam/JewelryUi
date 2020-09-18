@@ -23,7 +23,7 @@ export abstract class ApiService<T extends GenericModel> {
 
   public save(item: T): Observable<T> {
     const url = this.API_SERVICE + this.endpoint;
-    if (item.id > 0) {
+    if (item.id > 0 && item.id == null) {
       return this.http.put<T>(url, item);
     }
     return this.http.post<T>(url, item);

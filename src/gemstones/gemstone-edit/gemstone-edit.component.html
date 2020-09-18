@@ -1,4 +1,10 @@
-<div class="edit-gemstone">
+<div class="background">
+  <div class="edit-gemstone">
 
-  <label>Name<input type="text" pInputText [(ngModel)]="gemstone.name"/></label>
+    <label>Name<input type="text" pInputText [(ngModel)]="gemstone.name"/></label>
+
+    <button pButton type="button" label="Save" (click)="save()"></button>
+    <button pButton type="button" label="Cancel" (click)="cancel()"></button>
+  </div>
 </div>
+

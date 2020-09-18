@@ -7,6 +7,7 @@ import {TableModule} from 'primeng/table';
 import {FormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
+import {GemstonesService} from '../services/gemstones.service';
 
 
 
@@ -19,6 +20,9 @@ import {ButtonModule} from 'primeng/button';
     FormsModule,
     InputTextModule,
     ButtonModule
+  ],
+  providers: [
+    GemstonesService
   ]
 })
 export class GemstonesModule { }

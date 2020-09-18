@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
+import {UsersService} from '../services/users.service';
 
 
 @NgModule({
@@ -20,6 +21,9 @@ import {CheckboxModule} from 'primeng/checkbox';
     InputTextModule,
     ButtonModule,
     CheckboxModule
+  ],
+  providers: [
+    UsersService
   ]
 })
 export class UsersModule {

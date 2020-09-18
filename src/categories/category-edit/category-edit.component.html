@@ -1,5 +1,11 @@
-<div class="edit-category">
+<div class="background">
+  <div class="edit-category">
 
-  <label>Name<input type="text" pInputText [(ngModel)]="category.name"/></label>
+    <label>Name<input type="text" pInputText [(ngModel)]="category.name"/></label>
+
+    <button pButton type="button" label="Save" (click)="save()"></button>
+    <button pButton type="button" label="Cancel" (click)="cancel()"></button>
+  </div>
 </div>
+
 

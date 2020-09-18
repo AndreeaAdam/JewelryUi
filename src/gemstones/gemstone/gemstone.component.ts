@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Gemstone} from '../../model/gemstone';
+import {Router} from '@angular/router';
+import {GemstonesService} from '../../services/gemstones.service';
 
 @Component({
   selector: 'app-gemstone',
@@ -7,20 +9,20 @@ import {Gemstone} from '../../model/gemstone';
   styleUrls: ['./gemstone.component.css']
 })
 export class GemstoneComponent implements OnInit {
-  public gemstones: Gemstone[] = [
-    {id: 1, name: 'Diamond'},
-    {id: 2, name: 'Rubie'},
-    {id: 3, name: 'Tiger\'s eye'},
-    {id: 4, name: 'Opal'},
-    {id: 5, name: 'No gemstone'},
-    {id: 6, name: 'Yellow diamond'},
-    {id: 7, name: 'Pearl'},
-  ];
-
-  constructor() {
+  public gemstones: Gemstone[] = [];
+  constructor(
+    private router: Router,
+    private service: GemstonesService
+  ) {
   }
 
   ngOnInit(): void {
+    this.service.getAll().subscribe(value => this.gemstones = value);
+
+  }
+  add(): void {
+    const url = '/gemstones-edit/0';
+    this.router.navigateByUrl(url);
   }
 
 }

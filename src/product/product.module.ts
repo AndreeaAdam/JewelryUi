@@ -9,8 +9,6 @@ import {ProductEditComponent} from './product-edit/product-edit.component';
 import {RouterModule} from '@angular/router';
 import {DropdownModule} from 'primeng/dropdown';
 import {ProductsService} from '../services/products.service';
-import {HttpClient} from '@angular/common/http';
-
 
 @NgModule({
   declarations: [ProductComponent, ProductEditComponent],

@@ -1,5 +1,9 @@
-<div class="edit-material">
+<div class="background">
+  <div class="edit-material">
 
-  <label>Name<input type="text" pInputText [(ngModel)]="material.name"/></label>
-
+    <label>Name<input type="text" pInputText [(ngModel)]="material.name"/></label>
+    <button pButton type="button" label="Save" (click)="save()"></button>
+    <button pButton type="button" label="Cancel" (click)="cancel()"></button>
+  </div>
 </div>
+
