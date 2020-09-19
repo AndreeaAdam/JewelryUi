@@ -18,8 +18,17 @@ export class MaterialComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe(value => this.materials = value);
+    this.refreshList();
   }
+
+  refreshList(): void {
+    this.service.getAll().subscribe(value => this.materials = value);
+
+  }
+  delete(id: number): void {
+    this.service.delete(id).subscribe(value => this.refreshList());
+  }
+
   add(): void {
     const url = '/materials-edit/0';
     this.router.navigateByUrl(url);

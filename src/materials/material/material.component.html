@@ -14,6 +14,8 @@
           <td>{{material.name}}</td>
           <td>
             <a [routerLink]="'/materials-edit/' + material.id">Edit</a>
+            &nbsp;
+            <a href="#" (click)="delete(material.id)">Delete</a>
           </td>
         </tr>
       </ng-template>

@@ -29,6 +29,8 @@
 
           <td>
             <a [routerLink]="'/products-edit/' + product.id">Edit</a>
+            &nbsp;
+            <a href="#" (click)="delete(product.id)"> Delete</a>
           </td>
         </tr>
       </ng-template>

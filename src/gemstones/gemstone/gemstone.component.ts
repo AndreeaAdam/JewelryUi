@@ -10,6 +10,7 @@ import {GemstonesService} from '../../services/gemstones.service';
 })
 export class GemstoneComponent implements OnInit {
   public gemstones: Gemstone[] = [];
+
   constructor(
     private router: Router,
     private service: GemstonesService
@@ -17,9 +18,18 @@ export class GemstoneComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.refreshList();
+  }
+
+  refreshList(): void {
     this.service.getAll().subscribe(value => this.gemstones = value);
 
   }
+
+  delete(id: number): void {
+    this.service.delete(id).subscribe(value => this.refreshList());
+  }
+
   add(): void {
     const url = '/gemstones-edit/0';
     this.router.navigateByUrl(url);

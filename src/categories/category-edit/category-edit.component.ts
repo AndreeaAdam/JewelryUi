@@ -24,7 +24,6 @@ export class CategoryEditComponent implements OnInit {
       .subscribe(params => {
         this.id = parseInt(params.get('id'), 10);
         this.service.getById(this.id).subscribe(value => this.category = value);
-
       });
   }
 

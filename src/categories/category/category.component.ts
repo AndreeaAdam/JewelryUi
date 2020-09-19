@@ -14,10 +14,19 @@ export class CategoryComponent implements OnInit {
     private router: Router,
     private service: CategoriesService) {
   }
+
   public categories: Category[] = [];
 
   ngOnInit(): void {
+    this.refreshList();
+  }
+
+  refreshList(): void {
     this.service.getAll().subscribe(value => this.categories = value);
+  }
+
+  delete(id: number): void {
+    this.service.delete(id).subscribe(value => this.refreshList());
   }
 
   add(): void {

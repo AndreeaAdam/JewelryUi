@@ -14,15 +14,25 @@ export class ProductComponent implements OnInit {
     private router: Router,
     private service: ProductsService) {
   }
+
   public products: Product[] = [];
 
   ngOnInit(): void {
+    this.refreshList();
+  }
+
+  refreshList(): void {
     this.service.getAll().subscribe(value => this.products = value);
 
+  }
+  delete(id: number): void {
+    this.service.delete(id).subscribe(value => this.refreshList());
   }
 
   add(): void {
     const url = '/products-edit/0';
     this.router.navigateByUrl(url);
   }
+
+
 }
