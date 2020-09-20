@@ -14,6 +14,7 @@ import {MaterialsModule} from '../materials/materials.module';
 import {UsersModule} from '../users/users.module';
 import {GemstonesModule} from '../gemstones/gemstones.module';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {LoginModule} from "../login/login.module";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     MaterialsModule,
     UsersModule,
     GemstonesModule,
-    HttpClientModule
+    HttpClientModule,
+    LoginModule
   ],
   providers: [
     HttpClient
