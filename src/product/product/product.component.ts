@@ -2,6 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {ProductsService} from '../../services/products.service';
 import {Router} from '@angular/router';
+import {Category} from '../../model/category';
+import {Gender} from '../../model/gender';
+import {CategoriesService} from '../../services/categories.service';
+import {GendersService} from '../../services/genders.service';
+import {ConfirmationService} from 'primeng/api';
+
 
 @Component({
   selector: 'app-product',
@@ -12,21 +18,43 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: ProductsService) {
+    private service: ProductsService,
+    private categoriesService: CategoriesService,
+    private gendersService: GendersService,
+    private confirmationService: ConfirmationService
+  ) {
   }
 
   public products: Product[] = [];
+  public categories: Category[] = [];
+  public genders: Gender[] = [];
 
   ngOnInit(): void {
+
     this.refreshList();
   }
 
   refreshList(): void {
+    this.categoriesService.getAll().subscribe(categories => this.categories = categories);
+    this.gendersService.getAll().subscribe(genders => this.genders = genders);
     this.service.getAll().subscribe(value => this.products = value);
+    this.categoriesService.getAll().subscribe(categories => {
+      this.categories = categories;
+      this.service.getAll().subscribe(value => this.products = value);
+
+    });
+
 
   }
-  delete(id: number): void {
-    this.service.delete(id).subscribe(value => this.refreshList());
+
+  delete(id: number): boolean {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete this item?',
+      accept: () => {
+        this.service.delete(id).subscribe(value => this.refreshList());
+      }
+    });
+    return false;
   }
 
   add(): void {
@@ -34,5 +62,20 @@ export class ProductComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
+  getCategoryName(id: number): string {
+    const categoryModel = this.categories.find(category => category.id === id);
+    if (categoryModel.id === 0) {
+      categoryModel.name = 'N/A';
+    }
+    return categoryModel ? categoryModel.name : 'N/A';
+  }
+
+  getGenderType(id: number): string {
+    const genderModel = this.genders.find(genser => genser.id === id);
+    if (genderModel.id === 0) {
+      genderModel.type = 'N/A';
+    }
+    return genderModel ? genderModel.type : 'N/A';
+  }
 
 }

@@ -9,6 +9,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
 import {UsersService} from '../services/users.service';
+import {PasswordModule} from 'primeng/password';
+import {MessageModule} from 'primeng/message';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import {UsersService} from '../services/users.service';
     FormsModule,
     InputTextModule,
     ButtonModule,
-    CheckboxModule
+    CheckboxModule,
+    PasswordModule,
+    MessageModule
   ],
   providers: [
     UsersService

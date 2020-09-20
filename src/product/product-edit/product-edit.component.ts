@@ -14,7 +14,6 @@ import {Gender} from '../../model/gender';
 })
 export class ProductEditComponent implements OnInit {
   public product: Product = new Product();
-  private id: number;
   public categories: Category[] = [];
   public genders: Gender[] = [];
 
@@ -29,27 +28,17 @@ export class ProductEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoryService.getAll().subscribe(category => {
-      this.categories = category;
-      this.route.paramMap
-        .subscribe(params => {
-          this.id = parseInt(params.get('id'), 10);
-          this.service.getById(this.id).subscribe(value => this.product = value);
-        });
-    });
-    this.genderService.getAll().subscribe(gender => {
-      this.genders = gender;
-      this.route.paramMap
-        .subscribe(params => {
-          this.id = parseInt(params.get('id'), 10);
-          this.service.getById(this.id).subscribe(value => this.product = value);
-        });
-    });
+    this.getData();
   }
 
   save(): void {
-    this.service.save(this.product).subscribe(value => this.product = value);
-    this.gotolist();
+    this.product.categoryId = this.product.category.id;
+    this.product.genderId = this.product.gender.id;
+    console.log('Saving model', this.product);
+    this.service.save(this.product).subscribe(value => {
+      this.product = value;
+      this.gotolist();
+    });
   }
 
   cancel(): void {
@@ -59,6 +48,60 @@ export class ProductEditComponent implements OnInit {
   gotolist(): void {
     const url = '/products';
     this.router.navigateByUrl(url);
+  }
+
+
+  private getData(): void {
+    this.getCategory();
+    this.getGender();
+    this.getModel();
+  }
+
+  private getCategory(): void {
+    this.categoryService.getAll().subscribe(category => {
+      this.categories = category;
+      this.setCategories();
+    });
+  }
+
+  private getGender(): void {
+    this.genderService.getAll().subscribe(gender => {
+      this.genders = gender;
+      this.setGender();
+    });
+  }
+
+  private getModel(): void {
+    this.route.paramMap.subscribe(params => {
+      const id = parseInt(params.get('id'), 10);
+      if (id > 0) {
+        this.service.getById(id).subscribe(product => {
+          console.log(product);
+          this.product = product;
+          this.setCategories();
+          this.setGender();
+        });
+      }
+    });
+  }
+
+  private setGender(): void {
+    if (this.genders.length > 0 && this.product !== undefined) {
+      this.product.gender = this.genders.find
+      (gendr => gendr.id === this.product.genderId);
+      if (!this.product.gender) {
+        this.product.gender = this.genders[0];
+      }
+    }
+  }
+
+  private setCategories(): void {
+    if (this.categories.length > 0 && this.product !== undefined) {
+      this.product.category = this.categories.find(categ => categ.id === this.product.categoryId);
+      if (!this.product.category) {
+        this.product.category = this.categories[0];
+      }
+    }
   }
 
 }

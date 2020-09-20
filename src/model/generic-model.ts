@@ -1,3 +1,3 @@
 export class GenericModel {
-  public id: number;
-}
+constructor(public id = 0) {
+}}

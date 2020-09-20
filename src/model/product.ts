@@ -1,4 +1,6 @@
 import {GenericModel} from './generic-model';
+import {Gender} from './gender';
+import {Category} from './category';
 
 export class Product extends GenericModel{
   public name: string;
@@ -9,4 +11,7 @@ export class Product extends GenericModel{
 
   public categoryId: number;
   public genderId: number;
+
+  public gender: Gender;
+  public category: Category;
 }

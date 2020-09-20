@@ -16,7 +16,9 @@ export class GemstoneEditComponent implements OnInit {
     private service: GemstonesService,
     private route: ActivatedRoute,
     private router: Router
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.route.paramMap
       .subscribe(params => {
         this.id = parseInt(params.get('id'), 10);
@@ -24,21 +26,18 @@ export class GemstoneEditComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {
-  }
-
   save(): void {
     this.service.save(this.gemstone).subscribe(value => {
       this.gemstone = value;
-      this.gotolist();
+      this.goToList();
     });
   }
 
   cancel(): void {
-    this.gotolist();
+    this.goToList();
   }
 
-  gotolist(): void {
+  goToList(): void {
     const url = '/gemstones';
     this.router.navigateByUrl(url);
   }

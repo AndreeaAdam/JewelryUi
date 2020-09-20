@@ -38,7 +38,7 @@ export class MaterialEditComponent implements OnInit {
   }
 
   gotolist(): void {
-    const url = '/categories';
+    const url = '/materials';
     this.router.navigateByUrl(url);
   }
 

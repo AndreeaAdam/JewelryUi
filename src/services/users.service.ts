@@ -12,4 +12,9 @@ export class UsersService extends ApiService<User>{
     super(http);
     this.endpoint = '/api/users';
   }
+  public beforeSave(item: User): void {
+    if (!item.isAdministrator) {
+      item.isAdministrator = false;
+    }
+  }
 }
