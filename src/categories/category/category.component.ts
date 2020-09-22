@@ -3,6 +3,7 @@ import {Category} from '../../model/category';
 import {Router} from '@angular/router';
 import {CategoriesService} from '../../services/categories.service';
 import {ConfirmationService} from 'primeng/api';
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-category',
@@ -14,7 +15,8 @@ export class CategoryComponent implements OnInit {
   constructor(
     private router: Router,
     private service: CategoriesService,
-    private confirmationService: ConfirmationService) {
+    private confirmationService: ConfirmationService,
+    public authService: AuthenticationService) {
   }
 
   public categories: Category[] = [];

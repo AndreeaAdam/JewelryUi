@@ -15,19 +15,19 @@ export class LoginComponent implements OnInit {
   public route: string;
 
   constructor(private userService: UsersService,
-              private router: Router
+              private router: Router,
+              private authService: AuthenticationService
   ) {
   }
 
   ngOnInit(): void {
   }
 
-  doLogin(): void {
+  doLogin(user: string, password: string): void {
+    this.user.userName = user;
+    this.user.password = password
+    this.userService.authenticate(user,password);
 
-    this.userService.authenticate(this.user.userName, this.user.password);
-    if (this.user.isAdministrator === true){
-
-    }
     this.router.navigateByUrl('');
   }
   register(): void{

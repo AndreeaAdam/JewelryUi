@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "jewelry-ui"
+    }
+  },
+  "defaultProject": "jewelry-ui",
+  "cli": {
+    "analytics": "28dca2e5-3652-469a-8176-438194a27d06"
+  }
 }

@@ -14,9 +14,10 @@
           <td>{{category.id}}</td>
           <td>{{category.name}}</td>
           <td>
+            &nbsp;<div *ngIf="authService.authenticatedUser">
             <a [routerLink]="'/categories-edit/' + category.id">Edit</a>
-            &nbsp;
-            <a href="#" (click)="delete(category.id)">Delete</a>
+            <a href="#"(click)="delete(category.id)" > Delete</a>
+          </div>
           </td>
         </tr>
       </ng-template>

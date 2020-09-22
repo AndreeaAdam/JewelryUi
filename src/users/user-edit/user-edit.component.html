@@ -7,7 +7,7 @@
   <label>Last name<input type="text" pInputText [(ngModel)]="user.lastName"/></label>
   <label>Telephone<input type="text" pInputText [(ngModel)]="user.telephone"/></label>
   <label>Email<input type="text" pInputText [(ngModel)]="user.email"/></label>
-  <label>Is administrator<p-checkbox [(ngModel)]="user.isAdministrator"></p-checkbox></label>
+  <label>Is administrator<p-checkbox [(ngModel)]="user.isAdministrator" [binary]='false'></p-checkbox></label>
 
   <button pButton type="button" label="Save" (click)="save()"></button>
   <button pButton type="button" label="Cancel" (click)="cancel()"></button>
