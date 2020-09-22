@@ -1,3 +1,6 @@
-<label>Username<input type="text" pInputText /></label>
-<label>Password<input type="password" pInputText /></label>
+<label>User name<input type="text" pInputText [(ngModel)]="user.userName"/></label>
+<label>Password<input type="password" pInputText [(ngModel)]="user.password"/></label>
 <button pButton type="button" label="Login" (click)="doLogin()"></button>
+<button pButton type="button" label="Register" (click)="register()"></button>
+
+

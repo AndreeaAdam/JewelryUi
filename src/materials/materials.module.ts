@@ -8,6 +8,8 @@ import {FormsModule} from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {MaterialsService} from '../services/materials.service';
+import {ConfirmDialog, ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 
 @NgModule({
@@ -18,10 +20,12 @@ import {MaterialsService} from '../services/materials.service';
     TableModule,
     FormsModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    ConfirmDialogModule
   ],
   providers: [
-    MaterialsService
+    MaterialsService,
+    ConfirmationService
   ]
 })
 export class MaterialsModule {

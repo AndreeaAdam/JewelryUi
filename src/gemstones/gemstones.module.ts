@@ -8,6 +8,8 @@ import {FormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {GemstonesService} from '../services/gemstones.service';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 
 
@@ -19,10 +21,12 @@ import {GemstonesService} from '../services/gemstones.service';
     TableModule,
     FormsModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    ConfirmDialogModule
   ],
   providers: [
-    GemstonesService
+    GemstonesService,
+    ConfirmationService
   ]
 })
 export class GemstonesModule { }

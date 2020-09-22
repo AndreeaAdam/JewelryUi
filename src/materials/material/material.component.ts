@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Material} from '../../model/material';
 import {MaterialsService} from '../../services/materials.service';
 import {Router} from '@angular/router';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-material',
@@ -13,7 +14,8 @@ export class MaterialComponent implements OnInit {
 
   constructor(
     private service: MaterialsService,
-    private router: Router
+    private router: Router,
+    private confirmationService: ConfirmationService
   ) {
   }
 
@@ -25,8 +27,14 @@ export class MaterialComponent implements OnInit {
     this.service.getAll().subscribe(value => this.materials = value);
 
   }
-  delete(id: number): void {
-    this.service.delete(id).subscribe(value => this.refreshList());
+  delete(id: number): boolean {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete this item?',
+      accept: () => {
+        this.service.delete(id).subscribe(value => this.refreshList());
+      }
+    });
+    return false;
   }
 
   add(): void {

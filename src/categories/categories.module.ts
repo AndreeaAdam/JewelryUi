@@ -8,6 +8,8 @@ import {FormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {CategoriesService} from '../services/categories.service';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 
 @NgModule({
@@ -18,10 +20,12 @@ import {CategoriesService} from '../services/categories.service';
     TableModule,
     FormsModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    ConfirmDialogModule
   ],
   providers: [
-    CategoriesService
+    CategoriesService,
+    ConfirmationService
   ]
 })
 export class CategoriesModule {

@@ -3,6 +3,7 @@ import {User} from '../../model/user';
 import {Router} from '@angular/router';
 import {ProductsService} from '../../services/products.service';
 import {UsersService} from '../../services/users.service';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-user',
@@ -13,7 +14,9 @@ export class UserComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: UsersService) {
+    private service: UsersService,
+    private confirmationService: ConfirmationService
+  ) {
   }
   public users: User[] = [];
 
@@ -23,6 +26,19 @@ export class UserComponent implements OnInit {
   add(): void {
     const url = '/users-edit/0';
     this.router.navigateByUrl(url);
+  }
+  delete(id: number): boolean {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete this item?',
+      accept: () => {
+        this.service.delete(id).subscribe(value => this.refreshList());
+      }
+    });
+    return false;
+  }
+
+  refreshList(): void {
+    this.service.getAll().subscribe(value => this.users = value);
   }
 
 }

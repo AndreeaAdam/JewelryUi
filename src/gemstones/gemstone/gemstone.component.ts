@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Gemstone} from '../../model/gemstone';
 import {Router} from '@angular/router';
 import {GemstonesService} from '../../services/gemstones.service';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-gemstone',
@@ -13,7 +14,8 @@ export class GemstoneComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: GemstonesService
+    private service: GemstonesService,
+    private confirmationService: ConfirmationService
   ) {
   }
 
@@ -26,8 +28,14 @@ export class GemstoneComponent implements OnInit {
 
   }
 
-  delete(id: number): void {
-    this.service.delete(id).subscribe(value => this.refreshList());
+  delete(id: number): boolean {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete this item?',
+      accept: () => {
+        this.service.delete(id).subscribe(value => this.refreshList());
+      }
+    });
+    return false;
   }
 
   add(): void {

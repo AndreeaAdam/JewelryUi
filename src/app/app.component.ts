@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AuthenticationService} from "../services/authentication.service";
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import {AuthenticationService} from "../services/authentication.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private authService: AuthenticationService) {
+  constructor(public authService: AuthenticationService) {
   }
 
   title = 'jewelry-ui';

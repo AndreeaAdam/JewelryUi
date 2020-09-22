@@ -12,8 +12,8 @@ import {UserEditComponent} from '../users/user-edit/user-edit.component';
 import {UserComponent} from '../users/user/user.component';
 import {GemstoneComponent} from '../gemstones/gemstone/gemstone.component';
 import {GemstoneEditComponent} from '../gemstones/gemstone-edit/gemstone-edit.component';
-import {AuthGuard} from "../routeGuards/auth.guard";
-import {LoginComponent} from "../login/login/login.component";
+import {AuthGuard} from '../routeGuards/auth.guard';
+import {LoginComponent} from '../login/login/login.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent, canActivate: [AuthGuard]},
@@ -38,8 +38,5 @@ const routes: Routes = [
   ]
 })
 export class AppRoutingModule {
-  static canEnterProducts(): boolean {
 
-    return false;
-  }
 }
