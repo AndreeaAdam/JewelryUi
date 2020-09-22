@@ -24,11 +24,9 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin(user: string, password: string): void {
-    this.user.userName = user;
-    this.user.password = password
     this.userService.authenticate(user,password);
 
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl("");
   }
   register(): void{
   }

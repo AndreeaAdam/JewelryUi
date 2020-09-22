@@ -7,5 +7,5 @@ export class User extends GenericModel{
   public lastName: string;
   public telephone: string;
   public email: string;
-  public isAdministrator: boolean;
+  public administrator: boolean;
 }

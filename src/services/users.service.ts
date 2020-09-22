@@ -15,8 +15,8 @@ export class UsersService extends ApiService<User> {
   }
 
   public beforeSave(item: User): void {
-    if (!item.isAdministrator) {
-      item.isAdministrator = false;
+    if (!item.administrator) {
+      item.administrator = false;
     }
   }
 

@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
     }
 
     if (route.routeConfig.path.includes('-edit')) {
-      return this.authService.authenticatedUser?.isAdministrator;
+      return this.authService.authenticatedUser?.administrator;
     }
 
     return true;
