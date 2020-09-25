@@ -1,0 +1,15 @@
+<div class="background">
+  <div class="register-user">
+
+    <label>User name<input type="text" pInputText [(ngModel)]="user.userName"/></label>
+    <label>Password<input type="password" pPassword  [(ngModel)]="user.password"/></label>
+    <label>First name<input type="text" pInputText [(ngModel)]="user.firstName"/></label>
+    <label>Last name<input type="text" pInputText [(ngModel)]="user.lastName"/></label>
+    <label>Telephone<input type="text" pInputText [(ngModel)]="user.telephone"/></label>
+    <label>Email<input type="text" pInputText [(ngModel)]="user.email"/></label>
+
+    <button pButton type="button" label="Save" (click)="save()"></button>
+    <button pButton type="button" label="Cancel" (click)="cancel()"></button>
+  </div>
+</div>
+

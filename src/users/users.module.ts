@@ -11,7 +11,7 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {UsersService} from '../services/users.service';
 import {PasswordModule} from 'primeng/password';
 import {MessageModule} from 'primeng/message';
-import {ConfirmDialog, ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 
 

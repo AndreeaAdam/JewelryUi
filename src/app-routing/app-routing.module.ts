@@ -14,10 +14,12 @@ import {GemstoneComponent} from '../gemstones/gemstone/gemstone.component';
 import {GemstoneEditComponent} from '../gemstones/gemstone-edit/gemstone-edit.component';
 import {AuthGuard} from '../routeGuards/auth.guard';
 import {LoginComponent} from '../login/login/login.component';
+import {RegisterComponent} from "../register/register/register.component";
 
 const routes: Routes = [
   {path: '', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'products', component: ProductComponent, canActivate: [AuthGuard]},
   {path: 'products-edit/:id', component: ProductEditComponent, canActivate: [AuthGuard]},
   {path: 'categories-edit/:id', component: CategoryEditComponent, canActivate: [AuthGuard]},

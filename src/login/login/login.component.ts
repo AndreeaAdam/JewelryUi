@@ -2,9 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {UsersService} from '../../services/users.service';
 import {User} from '../../model/user';
 import {Router} from '@angular/router';
-import {AuthenticationService} from '../../services/authentication.service';
-import {UserComponent} from '../../users/user/user.component';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,20 +12,21 @@ export class LoginComponent implements OnInit {
   public route: string;
 
   constructor(private userService: UsersService,
-              private router: Router,
-              private authService: AuthenticationService
-  ) {
+              private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
   doLogin(user: string, password: string): void {
-    this.userService.authenticate(user,password);
+    this.userService.authenticate(user, password);
 
     this.router.navigateByUrl("");
   }
-  register(): void{
+
+  register(): void {
+    this.router.navigateByUrl('/register');
+
   }
 
 }

@@ -15,6 +15,8 @@ import {UsersModule} from '../users/users.module';
 import {GemstonesModule} from '../gemstones/gemstones.module';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {LoginModule} from "../login/login.module";
+import {RegisterModule} from "../register/register.module";
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import {LoginModule} from "../login/login.module";
     UsersModule,
     GemstonesModule,
     HttpClientModule,
-    LoginModule
+    LoginModule,
+    RegisterModule
   ],
   providers: [
     HttpClient

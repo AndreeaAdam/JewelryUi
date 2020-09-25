@@ -30,8 +30,9 @@
           <td>{{getCategoryName(product.categoryId)}}</td>
           <td>{{getGenderType(product.genderId)}}</td>
           <td>
-            <a [routerLink]="'/products-edit/' + product.id">Edit</a>
-            &nbsp;<a href="#" (click)="delete(product.id)"> Delete</a>
+            <a *ngIf="authService.authenticatedUser" [routerLink]="'/products-edit/' + product.id">Edit</a>
+            &nbsp;<a href="#" *ngIf="authService.authenticatedUser" (click)="delete(product.id)"> Delete</a>
+            &nbsp;<a href="" (click)="addToShoppingCart(product.id)"> Add to my shopping cart</a>
           </td>
         </tr>
       </ng-template>

@@ -7,6 +7,7 @@ import {Gender} from '../../model/gender';
 import {CategoriesService} from '../../services/categories.service';
 import {GendersService} from '../../services/genders.service';
 import {ConfirmationService} from 'primeng/api';
+import {AuthenticationService} from "../../services/authentication.service";
 
 
 @Component({
@@ -21,7 +22,8 @@ export class ProductComponent implements OnInit {
     private service: ProductsService,
     private categoriesService: CategoriesService,
     private gendersService: GendersService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    public authService: AuthenticationService
   ) {
   }
 
@@ -77,5 +79,7 @@ export class ProductComponent implements OnInit {
     }
     return genderModel ? genderModel.type : 'N/A';
   }
+  addToShoppingCart(id: number): void{
 
+  }
 }

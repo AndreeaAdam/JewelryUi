@@ -1,4 +1,16 @@
-<label>User name<input type="text" pInputText [(ngModel)]="user.userName"/></label>
-<label>Password<input type="password" pInputText [(ngModel)]="user.password"/></label>
-<button pButton type="button" label="Login" (click)="doLogin(user.userName, user.password )"></button>
-<button pButton type="button" label="Register" (click)="register()"></button>
+<div class="login">
+  <div class="title">
+    <p> Welcome to The Diamond Spot</p>
+    <p>Are you new here?</p>
+  </div>
+
+  <div class="background" >
+    <label>User name<input type="text" pInputText [(ngModel)]="user.userName"/></label>
+    <label>Password<input type="password" pInputText [(ngModel)]="user.password"/></label>
+    <button pButton  type="button" label="Login" (click)="doLogin(user.userName, user.password )"></button>
+    <button pButton class="register" type="button" label="Register" (click)="register()"></button>
+  </div>
+</div>
+
+
+

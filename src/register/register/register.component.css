@@ -1,4 +1,4 @@
-.edit-material {
+.register-user {
   display: flex;
   flex-flow: row wrap;
   width: 45%;
@@ -18,7 +18,7 @@ label {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("../../assets/background.jpg");
+  background-image: url("../../assets/background2.jpg");
 }
 button{
   height: 5vh;
