@@ -29,8 +29,15 @@ label{
   background-position: center;
   background-image: url("../../assets/background.jpg");
 }
-button{
-  height: 5vh;
-  width:90px;
-  background: cornflowerblue;
+button {
+  background-color:turquoise;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+}
+button:hover {
+  opacity: 0.8;
 }

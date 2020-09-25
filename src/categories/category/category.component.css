@@ -1,7 +1,25 @@
-.categories {
-  width: 100%;
+.category {
+  position: absolute;
+  width: 900px;
+  height: 500px;
+  z-index: 15;
+  top:30%;
+  left: 30%;
+  margin: -100px 0 0 -150px;
 }
 
 .ptable {
   width: 100%;
+}
+button {
+  background-color: turquoise;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+}
+button:hover {
+  opacity: 0.8;
 }

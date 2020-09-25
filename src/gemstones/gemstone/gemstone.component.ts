@@ -3,6 +3,7 @@ import {Gemstone} from '../../model/gemstone';
 import {Router} from '@angular/router';
 import {GemstonesService} from '../../services/gemstones.service';
 import {ConfirmationService} from 'primeng/api';
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-gemstone',
@@ -15,7 +16,8 @@ export class GemstoneComponent implements OnInit {
   constructor(
     private router: Router,
     private service: GemstonesService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    public authService: AuthenticationService
   ) {
   }
 

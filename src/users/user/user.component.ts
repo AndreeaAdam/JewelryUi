@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ProductsService} from '../../services/products.service';
 import {UsersService} from '../../services/users.service';
 import {ConfirmationService} from 'primeng/api';
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-user',
@@ -15,7 +16,8 @@ export class UserComponent implements OnInit {
   constructor(
     private router: Router,
     private service: UsersService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    public authService: AuthenticationService
   ) {
   }
   public users: User[] = [];

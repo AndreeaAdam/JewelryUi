@@ -3,6 +3,7 @@ import {Material} from '../../model/material';
 import {MaterialsService} from '../../services/materials.service';
 import {Router} from '@angular/router';
 import {ConfirmationService} from 'primeng/api';
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-material',
@@ -15,7 +16,8 @@ export class MaterialComponent implements OnInit {
   constructor(
     private service: MaterialsService,
     private router: Router,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    public authService: AuthenticationService
   ) {
   }
 

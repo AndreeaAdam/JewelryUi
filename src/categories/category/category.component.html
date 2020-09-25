@@ -1,5 +1,5 @@
-<div class="categories">
   <div class="category">
+    <button pButton type="button" label="Add" (click)="add()"></button>
     <p-table class="ptable" [value]="categories">
       <ng-template pTemplate="header">
         <tr>
@@ -15,15 +15,12 @@
           <td>{{category.name}}</td>
           <td>
             &nbsp;<div *ngIf="authService.authenticatedUser">
-            <a [routerLink]="'/categories-edit/' + category.id">Edit</a>
-            <a href="#"(click)="delete(category.id)" > Delete</a>
+            <button pButton type="button" label="Edit" [routerLink]="'/categories-edit/' + category.id"></button> &nbsp;&nbsp;
+            <button pButton type="button" label="Delete" *ngIf="authService.authenticatedUser" (click)="delete(category.id)"></button>
           </div>
           </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
-  <button pButton type="button" label="Add" (click)="add()"></button>
   <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
-
-</div>
