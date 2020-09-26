@@ -1,12 +1,12 @@
   <div class="category">
-    <button pButton type="button" label="Add" (click)="add()"></button>
+    <button pButton type="button" label="Add" (click)="add() " *ngIf="authService.authenticatedUser.administrator === true"></button>
     <p-table class="ptable" [value]="categories">
       <ng-template pTemplate="header">
         <tr>
           <th>Id</th>
           <th>Name</th>
 
-          <th>Action</th>
+          <th *ngIf="authService.authenticatedUser.administrator === true">Action</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-category>
@@ -14,9 +14,9 @@
           <td>{{category.id}}</td>
           <td>{{category.name}}</td>
           <td>
-            &nbsp;<div *ngIf="authService.authenticatedUser">
+            &nbsp;<div *ngIf="authService.authenticatedUser.administrator === true">
             <button pButton type="button" label="Edit" [routerLink]="'/categories-edit/' + category.id"></button> &nbsp;&nbsp;
-            <button pButton type="button" label="Delete" *ngIf="authService.authenticatedUser" (click)="delete(category.id)"></button>
+            <button pButton type="button" label="Delete" (click)="delete(category.id)"></button>
           </div>
           </td>
         </tr>

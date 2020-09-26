@@ -1,11 +1,11 @@
 <div class="materials">
-    <button pButton type="button" label="Add" (click)="add()"></button>
+    <button pButton type="button" label="Add" (click)="add()" *ngIf="authService.authenticatedUser.administrator === true"></button>
     <p-table class="ptable" [value]="materials">
       <ng-template pTemplate="header">
         <tr>
           <th>Id</th>
           <th>Name</th>
-          <th>Action</th>
+          <th *ngIf="authService.authenticatedUser.administrator === true">Action</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-material>
@@ -13,7 +13,7 @@
           <td>{{material.id}}</td>
           <td>{{material.name}}</td>
           <td>
-            <div *ngIf="authService.authenticatedUser">
+            <div *ngIf="authService.authenticatedUser.administrator === true">
               <button pButton type="button" label="Edit" [routerLink]="'/materials-edit/' + material.id"></button> &nbsp;&nbsp;
               <button pButton type="button" label="Delete"  (click)="delete(material.id)"></button>
             </div>

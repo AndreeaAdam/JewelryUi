@@ -15,6 +15,7 @@ import {GemstoneEditComponent} from '../gemstones/gemstone-edit/gemstone-edit.co
 import {AuthGuard} from '../routeGuards/auth.guard';
 import {LoginComponent} from '../login/login/login.component';
 import {RegisterComponent} from "../register/register/register.component";
+import {ShoppingCartComponent} from "../shopping-cart/shopping-cart/shopping-cart.component";
 
 const routes: Routes = [
   {path: '', component: DashboardComponent, canActivate: [AuthGuard]},
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'users-edit/:id', component: UserEditComponent, canActivate: [AuthGuard]},
   {path: 'users', component: UserComponent, canActivate: [AuthGuard]},
   {path: 'gemstones-edit/:id', component: GemstoneEditComponent, canActivate: [AuthGuard]},
-  {path: 'gemstones', component: GemstoneComponent, canActivate: [AuthGuard]}
+  {path: 'gemstones', component: GemstoneComponent, canActivate: [AuthGuard]},
+  {path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

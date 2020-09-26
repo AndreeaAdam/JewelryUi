@@ -1,12 +1,12 @@
 <div class="gemstones">
-    <button pButton type="button" label="Add" (click)="add()"></button>
+    <button pButton type="button" label="Add" (click)="add()" *ngIf="authService.authenticatedUser.administrator === true"></button>
     <p-table class="ptable" [value]="gemstones">
       <ng-template pTemplate="header">
         <tr>
           <th>Id</th>
           <th>Name</th>
 
-          <th>Action</th>
+          <th *ngIf="authService.authenticatedUser.administrator === true">Action</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-gemstone>
@@ -14,7 +14,7 @@
           <td>{{gemstone.id}}</td>
           <td>{{gemstone.name}}</td>
           <td>
-            <div *ngIf="authService.authenticatedUser">
+            <div *ngIf="authService.authenticatedUser.administrator === true">
               <button pButton type="button" label="Edit" [routerLink]="'/gemstones-edit/' + gemstone.id"></button> &nbsp;&nbsp;
               <button pButton type="button" label="Delete"  (click)="delete(gemstone.id)"></button>
             </div>
