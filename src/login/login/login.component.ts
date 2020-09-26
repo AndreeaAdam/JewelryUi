@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {UsersService} from '../../services/users.service';
 import {User} from '../../model/user';
 import {Router} from '@angular/router';
+import {HttpClient} from "@angular/common/http";
+import {AuthenticationService} from "../../services/authentication.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,16 +14,20 @@ export class LoginComponent implements OnInit {
   public route: string;
 
   constructor(private userService: UsersService,
-              private router: Router) {
+              private router: Router,
+              private authService: AuthenticationService) {
   }
 
   ngOnInit(): void {
   }
 
   doLogin(user: string, password: string): void {
-    this.userService.authenticate(user, password);
-
-    this.router.navigateByUrl("");
+    this.userService.authenticate(user, password).subscribe(authenticatedUser => {
+      this.authService.authenticatedUser = authenticatedUser;
+      this.router.navigateByUrl("");
+    }, error => {
+      console.error(error);
+    });
   }
 
   register(): void {

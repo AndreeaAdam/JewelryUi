@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 export abstract class ApiService<T extends GenericModel> {
-  protected readonly API_SERVICE = 'http://localhost:8080';
+  protected readonly API_SERVICE = 'http://localhost:8090';
   protected http: HttpClient;
   protected endpoint = '';
 

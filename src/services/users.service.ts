@@ -3,13 +3,14 @@ import {ApiService} from './api-service';
 import {User} from '../model/user';
 import {HttpClient} from '@angular/common/http';
 import {AuthenticationService} from './authentication.service';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService extends ApiService<User> {
 
-  constructor(http: HttpClient, private authService: AuthenticationService) {
+  constructor(http: HttpClient) {
     super(http);
     this.endpoint = '/api/users';
   }
@@ -20,15 +21,11 @@ export class UsersService extends ApiService<User> {
     }
   }
 
-  public authenticate(userName: string, password: string): void {
+  public authenticate(userName: string, password: string): Observable<User> {
     const url = this.API_SERVICE + this.endpoint + '/authenticate';
     const user = new User();
     user.userName = userName;
     user.password = password;
-    this.http.put<User>(url, user).subscribe(authenticatedUser => {
-      this.authService.authenticatedUser = authenticatedUser;
-    }, error => {
-      console.error(error);
-    });
+    return this.http.put<User>(url, user);
   }
 }
