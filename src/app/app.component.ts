@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
+import {MenuItem} from "primeng/api";
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,7 @@ import {AuthenticationService} from '../services/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   constructor(public authService: AuthenticationService) {
   }
-
-  title = 'jewelry-ui';
-}
+  }

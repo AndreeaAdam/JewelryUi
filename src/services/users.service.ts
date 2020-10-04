@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {ApiService} from './api-service';
 import {User} from '../model/user';
 import {HttpClient} from '@angular/common/http';
-import {AuthenticationService} from './authentication.service';
 import {Observable} from "rxjs";
 
 @Injectable({

@@ -13,11 +13,9 @@
         <tr>
           <td>{{gemstone.id}}</td>
           <td>{{gemstone.name}}</td>
-          <td>
-            <div *ngIf="authService.authenticatedUser.administrator === true">
+          <td *ngIf="authService.authenticatedUser.administrator === true">
               <button pButton type="button" label="Edit" [routerLink]="'/gemstones-edit/' + gemstone.id"></button> &nbsp;&nbsp;
               <button pButton type="button" label="Delete"  (click)="delete(gemstone.id)"></button>
-            </div>
           </td>
         </tr>
       </ng-template>

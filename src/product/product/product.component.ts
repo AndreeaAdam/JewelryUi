@@ -6,8 +6,9 @@ import {Category} from '../../model/category';
 import {Gender} from '../../model/gender';
 import {CategoriesService} from '../../services/categories.service';
 import {GendersService} from '../../services/genders.service';
-import {ConfirmationService} from 'primeng/api';
+import {ConfirmationService, LazyLoadEvent} from 'primeng/api';
 import {AuthenticationService} from "../../services/authentication.service";
+import {Page} from "../../model/page";
 
 
 @Component({
@@ -27,9 +28,11 @@ export class ProductComponent implements OnInit {
   ) {
   }
 
+  public productsPage: Page<Product>;
   public products: Product[] = [];
   public categories: Category[] = [];
-  public genders: Gender[] = [];
+  public genders:Gender[] = [];
+  public loading: boolean = false;
 
   ngOnInit(): void {
 
@@ -73,13 +76,22 @@ export class ProductComponent implements OnInit {
   }
 
   getGenderType(id: number): string {
-    const genderModel = this.genders.find(genser => genser.id === id);
+    const genderModel = this.genders.find(gender => gender.id === id);
     if (genderModel.id === 0) {
       genderModel.type = 'N/A';
     }
     return genderModel ? genderModel.type : 'N/A';
   }
-  addToShoppingCart(id: number): void{
 
+  addToShoppingCart(id: number): void {
+
+  }
+
+  loadProducts(event: LazyLoadEvent): void {
+    this.loading = true;
+    this.service.getAllPage(event.first / event.rows, event.rows).subscribe(value => {
+      this.productsPage = value;
+      this.loading = false;
+    });
   }
 }

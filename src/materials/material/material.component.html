@@ -12,11 +12,9 @@
         <tr>
           <td>{{material.id}}</td>
           <td>{{material.name}}</td>
-          <td>
-            <div *ngIf="authService.authenticatedUser.administrator === true">
+          <td *ngIf="authService.authenticatedUser.administrator === true">
               <button pButton type="button" label="Edit" [routerLink]="'/materials-edit/' + material.id"></button> &nbsp;&nbsp;
               <button pButton type="button" label="Delete"  (click)="delete(material.id)"></button>
-            </div>
           </td>
         </tr>
       </ng-template>

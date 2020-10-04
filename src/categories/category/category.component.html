@@ -13,11 +13,10 @@
         <tr>
           <td>{{category.id}}</td>
           <td>{{category.name}}</td>
-          <td>
-            &nbsp;<div *ngIf="authService.authenticatedUser.administrator === true">
+          <td *ngIf="authService.authenticatedUser.administrator === true">
             <button pButton type="button" label="Edit" [routerLink]="'/categories-edit/' + category.id"></button> &nbsp;&nbsp;
             <button pButton type="button" label="Delete" (click)="delete(category.id)"></button>
-          </div>
+
           </td>
         </tr>
       </ng-template>

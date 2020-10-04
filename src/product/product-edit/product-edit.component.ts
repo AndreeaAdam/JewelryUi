@@ -6,6 +6,7 @@ import {CategoriesService} from '../../services/categories.service';
 import {GendersService} from '../../services/genders.service';
 import {Category} from '../../model/category';
 import {Gender} from '../../model/gender';
+import {Page} from "../../model/page";
 
 @Component({
   selector: 'app-product-edit',

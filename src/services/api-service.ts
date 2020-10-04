@@ -1,9 +1,10 @@
 import {GenericModel} from '../model/generic-model';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Page} from "../model/page";
 
 export abstract class ApiService<T extends GenericModel> {
-  protected readonly API_SERVICE = 'http://localhost:8090';
+  protected readonly API_SERVICE = 'http://localhost:8080';
   protected http: HttpClient;
   protected endpoint = '';
 
@@ -11,10 +12,14 @@ export abstract class ApiService<T extends GenericModel> {
     this.http = http;
   }
 
+  public getAllPage(page = 0, pageSize = 4): Observable<Page<T>> {
+    return this.http.get<Page<T>>(this.API_SERVICE + this.endpoint + `?page=${page}&rowsPerPage=${pageSize}`); // back tick
+  }
   public getAll(): Observable<T[]> {
     const url = this.API_SERVICE + this.endpoint;
     return this.http.get<T[]>(url);
   }
+
 
   public getById(id: number): Observable<T> {
     const url = this.API_SERVICE + this.endpoint + '/' + id;

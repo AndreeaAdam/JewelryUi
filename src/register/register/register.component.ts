@@ -11,7 +11,6 @@ import {LoginComponent} from "../../login/login/login.component";
 })
 export class RegisterComponent implements OnInit {
   public user: User = new User();
-  private login: LoginComponent;
 
   constructor(
     private service: UsersService,

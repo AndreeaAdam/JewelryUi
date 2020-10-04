@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {GemstonesService} from '../../services/gemstones.service';
 import {ConfirmationService} from 'primeng/api';
 import {AuthenticationService} from "../../services/authentication.service";
+import {Page} from "../../model/page";
 
 @Component({
   selector: 'app-gemstone',
