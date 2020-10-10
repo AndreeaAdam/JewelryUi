@@ -4,6 +4,7 @@
       <ng-template pTemplate="header">
         <tr>
           <th>Id</th>
+          <th></th>
           <th>Name</th>
 
           <th *ngIf="authService.authenticatedUser.administrator === true">Action</th>
@@ -12,6 +13,7 @@
       <ng-template pTemplate="body" let-gemstone>
         <tr>
           <td>{{gemstone.id}}</td>
+          <td> <img [src]="'/assets/' +'gemstone' +  gemstone.id + '.jpg'"/></td>
           <td>{{gemstone.name}}</td>
           <td *ngIf="authService.authenticatedUser.administrator === true">
               <button pButton type="button" label="Edit" [routerLink]="'/gemstones-edit/' + gemstone.id"></button> &nbsp;&nbsp;

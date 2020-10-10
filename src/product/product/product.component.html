@@ -1,10 +1,11 @@
 <div class="products">
   <div class="product">
-    <button pButton type="button" label="Add" (click)="add()" *ngIf="authService.authenticatedUser.administrator === true" ></button>
+    <button pButton type="button" label="Add" (click)="add()"
+            *ngIf="authService.authenticatedUser.administrator === true"></button>
 
     <p-table class="ptable" [value]="productsPage?.content"
              [lazy]="true" (onLazyLoad)="loadProducts($event)"
-             [paginator]="true" [rows]="15" [totalRecords]="productsPage?.numberOfElements" [loading]="loading">
+             [paginator]="true" [rows]="5" [totalRecords]="productsPage?.numberOfElements" [loading]="loading">
       <ng-template pTemplate="header">
         <tr>
           <th>Name</th>
@@ -34,7 +35,8 @@
               <button pButton type="button" label="Edit" [routerLink]="'/products-edit/' + product.id"></button>
               <button pButton type="button" label="Delete"  (click)="delete(product.id)"></button>
             </div>
-            <button pButton type="button" label="Add" (click)="addToShoppingCart(product.id)"></button>
+            <button pButton type="button" label="Buy" (click)="addToShoppingCart(product.id)"
+                    *ngIf="authService.authenticatedUser.administrator === false"></button>
           </td>
         </tr>
       </ng-template>

@@ -11,4 +11,21 @@ export class AppComponent {
 
   constructor(public authService: AuthenticationService) {
   }
-  }
+
+  private items: MenuItem[];
+
+  ngOnInit() {
+    this.items = [
+      {label: 'Home', icon: ' pi pi-home', routerLink:['']},
+      {label: 'Products', routerLink: ['products']},
+      {label: 'Categories', routerLink: ['categories']},
+      {label: 'Materials', routerLink: ['materials']},
+      {label: 'Gemstones', routerLink: ['gemstones']},
+      {label: 'Users', icon: 'pi pi-users', routerLink: ['users']},
+      {label: 'My Bag', icon: 'pi pi-shopping-cart', routerLink: ['shopping-cart']},
+      {label: 'Log Out', icon: 'pi pi-sign-out', routerLink: ['logout']}
+    ]
+
+  };
+
+}

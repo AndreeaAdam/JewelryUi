@@ -2,18 +2,7 @@
   <div class="app-header">
     <div class="app-logo"></div>
     <div class="app-menu" *ngIf="authService.authenticatedUser">
-      <a class="app-menu-link" routerLink="">Home</a>
-      <a class="app-menu-link" routerLink="products">Products</a>
-      <a class="app-menu-link" routerLink="categories">Categories</a>
-      <a class="app-menu-link" routerLink="materials">Materials</a>
-      <a class="app-menu-link" routerLink="users" *ngIf="authService.authenticatedUser.administrator === true">Users</a>
-      <a class="app-menu-link" routerLink="gemstones">Gemstones</a>
-      <div class="app-menu-link-bag">
-        <a routerLink="shopping-cart">My Bag</a>
- &nbsp;&nbsp;&nbsp;
-        <a routerLink="logout">Log Out</a>
-      </div>
-
+      <p-menubar [model]="items"></p-menubar>
     </div>
   </div>
   <router-outlet></router-outlet>

@@ -4,7 +4,7 @@
   height: 500px;
   z-index: 15;
   top:40%;
-  left: 40%;
+  left: 35%;
   margin: -100px 0 0 -150px;
 }
 
@@ -22,4 +22,8 @@ button {
 }
 button:hover {
   opacity: 0.8;
+}
+img{
+  width: 150px;
+  height: 150px;
 }

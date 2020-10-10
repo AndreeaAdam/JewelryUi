@@ -30,8 +30,8 @@ export class RegisterComponent implements OnInit {
 
   goToHomePage(): void {
     this.router.navigateByUrl("");
-
   }
+
   cancel(): void {
     this.goToHomePage();
   }

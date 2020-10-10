@@ -16,29 +16,33 @@ import {GemstonesModule} from '../gemstones/gemstones.module';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {LoginModule} from "../login/login.module";
 import {RegisterModule} from "../register/register.module";
+import {MenubarModule} from "primeng/menubar";
+import {ShoppingCartModule} from "../shopping-cart/shopping-cart.module";
 
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    CommonModule,
-    RouterModule,
-    AppRoutingModule,
-    ProductModule,
-    TableModule,
-    ButtonModule,
-    CategoriesModule,
-    MaterialsModule,
-    UsersModule,
-    GemstonesModule,
-    HttpClientModule,
-    LoginModule,
-    RegisterModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        CommonModule,
+        RouterModule,
+        AppRoutingModule,
+        ProductModule,
+        TableModule,
+        ButtonModule,
+        CategoriesModule,
+        MaterialsModule,
+        UsersModule,
+        GemstonesModule,
+        HttpClientModule,
+        LoginModule,
+        RegisterModule,
+        MenubarModule,
+        ShoppingCartModule
+    ],
   providers: [
     HttpClient
   ],

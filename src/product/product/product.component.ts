@@ -9,6 +9,8 @@ import {GendersService} from '../../services/genders.service';
 import {ConfirmationService, LazyLoadEvent} from 'primeng/api';
 import {AuthenticationService} from "../../services/authentication.service";
 import {Page} from "../../model/page";
+import {ShoppingCartComponent} from "../../shopping-cart/shopping-cart/shopping-cart.component";
+import {CartService} from "../../services/cart.service";
 
 
 @Component({
@@ -24,32 +26,31 @@ export class ProductComponent implements OnInit {
     private categoriesService: CategoriesService,
     private gendersService: GendersService,
     private confirmationService: ConfirmationService,
-    public authService: AuthenticationService
+    public authService: AuthenticationService,
+    private cartService: CartService
   ) {
   }
 
   public productsPage: Page<Product>;
   public products: Product[] = [];
   public categories: Category[] = [];
-  public genders:Gender[] = [];
+  public genders: Gender[] = [];
   public loading: boolean = false;
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
     this.refreshList();
   }
 
-  refreshList(): void {
+  refreshList(page = 0, rowsPerPage = 4): void {
     this.categoriesService.getAll().subscribe(categories => this.categories = categories);
     this.gendersService.getAll().subscribe(genders => this.genders = genders);
     this.service.getAllPage().subscribe(value => this.productsPage = value);
     this.categoriesService.getAll().subscribe(categories => {
       this.categories = categories;
-      this.service.getAll().subscribe(value => this.products = value);
+      this.service.getAllPage(page, rowsPerPage).subscribe(value => this.productsPage = value);
 
     });
-
-
   }
 
   delete(id: number): boolean {
@@ -83,15 +84,14 @@ export class ProductComponent implements OnInit {
     return genderModel ? genderModel.type : 'N/A';
   }
 
-  addToShoppingCart(id: number): void {
-
+  addToShoppingCart(product: Product): void {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
   }
 
   loadProducts(event: LazyLoadEvent): void {
-    this.loading = true;
-    this.service.getAllPage(event.first / event.rows, event.rows).subscribe(value => {
-      this.productsPage = value;
-      this.loading = false;
-    });
+    this.refreshList(event.first - (this.productsPage.number * event.rows), event.rows);
+
   }
+
 }

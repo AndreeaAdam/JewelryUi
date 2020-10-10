@@ -22,7 +22,6 @@ export class LogoutComponent implements OnInit {
 
   yes(): void {
    this.auth.authenticatedUser = undefined;
-   if(true)
     this.router.navigateByUrl('#');
 
   }
