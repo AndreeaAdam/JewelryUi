@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit {
   refreshList(): void {
     this.categoriesService.getAll().subscribe(categories => this.categories = categories);
     this.gendersService.getAll().subscribe(genders => this.genders = genders);
-    this.service.getAll().subscribe(value => this.products = value);
+    this.service.getAllPage().subscribe(value => this.productsPage = value);
     this.categoriesService.getAll().subscribe(categories => {
       this.categories = categories;
       this.service.getAll().subscribe(value => this.products = value);

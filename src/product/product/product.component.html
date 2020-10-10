@@ -2,9 +2,9 @@
   <div class="product">
     <button pButton type="button" label="Add" (click)="add()" *ngIf="authService.authenticatedUser.administrator === true" ></button>
 
-    <p-table class="ptable" [value]="products"
+    <p-table class="ptable" [value]="productsPage?.content"
              [lazy]="true" (onLazyLoad)="loadProducts($event)"
-             [paginator]="true" [rows]="15" [totalRecords]="productsPage.numberOfElements" [loading]="loading">
+             [paginator]="true" [rows]="15" [totalRecords]="productsPage?.numberOfElements" [loading]="loading">
       <ng-template pTemplate="header">
         <tr>
           <th>Name</th>
