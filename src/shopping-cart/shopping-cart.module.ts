@@ -4,6 +4,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import {TableModule} from "primeng/table";
 import {ButtonModule} from "primeng/button";
 import {DialogModule} from "primeng/dialog";
+import {InputNumberModule} from 'primeng/inputnumber';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -13,7 +15,9 @@ import {DialogModule} from "primeng/dialog";
     CommonModule,
     TableModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    InputNumberModule,
+    FormsModule
   ]
 })
 export class ShoppingCartModule { }

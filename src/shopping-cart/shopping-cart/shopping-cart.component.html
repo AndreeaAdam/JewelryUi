@@ -1,28 +1,44 @@
-<h3>Cart</h3>
-
-<p-table [value]="products">
+<p class="intro"> My awesome bag</p>
+<div class="cart">
+  <p-table [value]="items">
   <ng-template pTemplate="header">
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Price</th>
       <th>Quantity</th>
+      <th>Total</th>
+
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-product>
+  <ng-template pTemplate="body" let-item>
     <tr>
-      <td>{{product.name}}</td>
-      <td>{{product.price}}</td>
-      <td>{{product.quantity}}</td>
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.price}}</td>
+      <td>
+        <p-inputNumber [(ngModel)]="value" [showButtons]="true"
+                       [min]="0" [max]=item.quantity ></p-inputNumber>
+    </td>
+      <td>
+
+      </td>
     </tr>
   </ng-template>
 </p-table>
-
-<p-button (click)="showDialog()"  label="Order"></p-button>
+<div class="total">
+  <label>Total: </label>
+  <button pButton type="button" label="View total" (click)="getTotalPrice()"></button>
+</div>
+<p-button (click)="showDialog()" label="Order"></p-button>
 <p-dialog header="Thank you for ordering!" [(visible)]="display" [style]="{width: '50vw'}" [baseZIndex]="10000">
   <p>
-    Your order number RO-82969662 is in progress and is about to be shipped. Enjoy your new jewelry on the city streets!</p>
+    Your order number RO-82969662 is in progress and is about to be shipped. Enjoy your new jewelry on the city
+    streets!</p>
   <ng-template pTemplate="footer">
-    <p-button icon="pi pi-check" (click)="display=false" (onClick)="goToHomePage()" label="Ok" styleClass="p-button-text"></p-button>
+    <p-button icon="pi pi-check" (click)="display=false" (onClick)="goToHomePage()" label="Ok"
+              styleClass="p-button-text"></p-button>
   </ng-template>
 </p-dialog>
+  </div>
 

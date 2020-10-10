@@ -9,7 +9,6 @@ import {GendersService} from '../../services/genders.service';
 import {ConfirmationService, LazyLoadEvent} from 'primeng/api';
 import {AuthenticationService} from "../../services/authentication.service";
 import {Page} from "../../model/page";
-import {ShoppingCartComponent} from "../../shopping-cart/shopping-cart/shopping-cart.component";
 import {CartService} from "../../services/cart.service";
 
 
@@ -86,11 +85,20 @@ export class ProductComponent implements OnInit {
 
   addToShoppingCart(product: Product): void {
     this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
-  }
+    // window.alert('Your product has been added to the cart!');
+    product.quantity = product.quantity -1;
+    this.service.save(product).subscribe(value => product.quantity);
 
+  }
+  //in a real application, make a remote request to load data using state metadata from event
+
+  //event.first = First row offset / index
+  //event.rows = Number of rows per page
+  //event.sortField = Field name to sort with
+  //event.sortOrder = Sort order as number, 1 for asc and -1 for dec
+  //filters: FilterMetadata object having field as key and filter value, filter matchMode as value
   loadProducts(event: LazyLoadEvent): void {
-    this.refreshList(event.first - (this.productsPage.number * event.rows), event.rows);
+    this.refreshList(this.productsPage.number / event.rows, event.rows);
 
   }
 

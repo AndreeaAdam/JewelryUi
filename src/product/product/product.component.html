@@ -35,7 +35,7 @@
               <button pButton type="button" label="Edit" [routerLink]="'/products-edit/' + product.id"></button>
               <button pButton type="button" label="Delete"  (click)="delete(product.id)"></button>
             </div>
-            <button pButton type="button" label="Buy" (click)="addToShoppingCart(product.id)"
+            <button pButton type="button" label="Buy" (click)="addToShoppingCart(product)"
                     *ngIf="authService.authenticatedUser.administrator === false"></button>
           </td>
         </tr>
