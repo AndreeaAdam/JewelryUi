@@ -35,7 +35,6 @@ export class ProductEditComponent implements OnInit {
   save(): void {
     this.product.categoryId = this.product.category.id;
     this.product.genderId = this.product.gender.id;
-    console.log('Saving model', this.product);
     this.service.save(this.product).subscribe(value => {
       this.product = value;
       this.gotolist();

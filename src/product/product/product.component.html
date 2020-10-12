@@ -5,7 +5,7 @@
 
     <p-table class="ptable" [value]="productsPage?.content"
              [lazy]="true" (onLazyLoad)="loadProducts($event)"
-             [paginator]="true" [rows]="5" [totalRecords]="productsPage?.numberOfElements" [loading]="loading">
+             [paginator]="true" [rows]="4" [totalRecords]="productsPage?.numberOfElements" [loading]="loading">
       <ng-template pTemplate="header">
         <tr>
           <th>Name</th>
@@ -35,12 +35,12 @@
               <button pButton type="button" label="Edit" [routerLink]="'/products-edit/' + product.id"></button>
               <button pButton type="button" label="Delete"  (click)="delete(product.id)"></button>
             </div>
-            <button pButton type="button" label="Buy" (click)="addToShoppingCart(product)"
-                    *ngIf="authService.authenticatedUser.administrator === false"></button>
+            <button pButton type="button" label="Buy" (click)="addToShoppingCart(product)"></button>
           </td>
         </tr>
       </ng-template>
     </p-table>
     <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
   </div>
+
 </div>

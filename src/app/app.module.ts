@@ -17,7 +17,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {LoginModule} from "../login/login.module";
 import {RegisterModule} from "../register/register.module";
 import {MenubarModule} from "primeng/menubar";
-import {ShoppingCartModule} from "../shopping-cart/shopping-cart.module";
+import {CartModule} from "../shopping-cart/cart.module";
 
 
 @NgModule({
@@ -41,7 +41,7 @@ import {ShoppingCartModule} from "../shopping-cart/shopping-cart.module";
         LoginModule,
         RegisterModule,
         MenubarModule,
-        ShoppingCartModule
+        CartModule
     ],
   providers: [
     HttpClient

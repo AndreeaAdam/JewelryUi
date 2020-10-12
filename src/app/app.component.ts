@@ -22,7 +22,7 @@ export class AppComponent {
       {label: 'Materials', routerLink: ['materials']},
       {label: 'Gemstones', routerLink: ['gemstones']},
       {label: 'Users', icon: 'pi pi-users', routerLink: ['users']},
-      {label: 'My Bag', icon: 'pi pi-shopping-cart', routerLink: ['shopping-cart']},
+      {label: 'My Bag', icon: 'pi pi-shopping-cart', routerLink: ['carts']},
       {label: 'Log Out', icon: 'pi pi-sign-out', routerLink: ['logout']}
     ]
 

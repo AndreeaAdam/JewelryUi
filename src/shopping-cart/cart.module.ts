@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { CartComponent } from './cart/cart.component';
 import {TableModule} from "primeng/table";
 import {ButtonModule} from "primeng/button";
 import {DialogModule} from "primeng/dialog";
@@ -10,7 +10,7 @@ import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
-  declarations: [ShoppingCartComponent],
+  declarations: [CartComponent],
   imports: [
     CommonModule,
     TableModule,
@@ -20,4 +20,4 @@ import {FormsModule} from "@angular/forms";
     FormsModule
   ]
 })
-export class ShoppingCartModule { }
+export class CartModule { }

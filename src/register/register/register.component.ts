@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../../model/user";
 import {UsersService} from "../../services/users.service";
 import {Router} from "@angular/router";
-import {LoginComponent} from "../../login/login/login.component";
 
 @Component({
   selector: 'app-register',

@@ -15,7 +15,7 @@ import {GemstoneEditComponent} from '../gemstones/gemstone-edit/gemstone-edit.co
 import {AuthGuard} from '../routeGuards/auth.guard';
 import {LoginComponent} from '../login/login/login.component';
 import {RegisterComponent} from "../register/register/register.component";
-import {ShoppingCartComponent} from "../shopping-cart/shopping-cart/shopping-cart.component";
+import {CartComponent} from "../shopping-cart/cart/cart.component";
 import {LogoutComponent} from "../logout/logout/logout.component";
 
 const routes: Routes = [
@@ -32,7 +32,7 @@ const routes: Routes = [
   {path: 'users', component: UserComponent, canActivate: [AuthGuard]},
   {path: 'gemstones-edit/:id', component: GemstoneEditComponent, canActivate: [AuthGuard]},
   {path: 'gemstones', component: GemstoneComponent, canActivate: [AuthGuard]},
-  {path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard]},
+  {path: 'carts', component: CartComponent, canActivate: [AuthGuard]},
   {path: 'logout', component: LogoutComponent, canActivate: [AuthGuard]}
 
 

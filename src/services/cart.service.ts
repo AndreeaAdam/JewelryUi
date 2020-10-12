@@ -1,15 +1,22 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {ApiService} from "./api-service";
+import {Cart} from "../model/cart";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class CartService extends ApiService<Cart> {
 
-  constructor() { }
+  constructor(http: HttpClient) {
+    super(http);
+    this.endpoint = '/api/carts';
+  }
+
   items = [];
 
-  addToCart(product) {
-    this.items.push(product);
+  addToCart(item: Cart) {
+    this.items.push(item);
   }
 
   getItems() {
@@ -20,4 +27,5 @@ export class CartService {
     this.items = [];
     return this.items;
   }
+
 }

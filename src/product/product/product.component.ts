@@ -10,7 +10,7 @@ import {ConfirmationService, LazyLoadEvent} from 'primeng/api';
 import {AuthenticationService} from "../../services/authentication.service";
 import {Page} from "../../model/page";
 import {CartService} from "../../services/cart.service";
-
+import {Cart} from "../../model/cart";
 
 @Component({
   selector: 'app-product',
@@ -84,21 +84,23 @@ export class ProductComponent implements OnInit {
   }
 
   addToShoppingCart(product: Product): void {
-    this.cartService.addToCart(product);
-    // window.alert('Your product has been added to the cart!');
-    product.quantity = product.quantity -1;
-    this.service.save(product).subscribe(value => product.quantity);
+    let item: Cart = new Cart();
 
+    item.productId = product.id;
+    item.userId = this.authService.authenticatedUser.id;
+    item.price = product.price;
+    item.isSold = true;
+    item.isPayed = true;
+    item.total = product.price * item.quantity;
+    console.log(item);
+    console.log(item.total);
+    this.cartService.addToCart(item);
   }
-  //in a real application, make a remote request to load data using state metadata from event
 
-  //event.first = First row offset / index
-  //event.rows = Number of rows per page
-  //event.sortField = Field name to sort with
-  //event.sortOrder = Sort order as number, 1 for asc and -1 for dec
-  //filters: FilterMetadata object having field as key and filter value, filter matchMode as value
   loadProducts(event: LazyLoadEvent): void {
-    this.refreshList(this.productsPage.number / event.rows, event.rows);
+    this.loading = true;
+    this.refreshList(event.first / event.rows, event.rows);
+    this.loading = false;
 
   }
 
