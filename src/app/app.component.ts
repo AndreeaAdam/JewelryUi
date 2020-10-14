@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(public authService: AuthenticationService) {
   }
 
-  private items: MenuItem[];
+  public items: MenuItem[];
 
   ngOnInit() {
     this.items = [
@@ -24,7 +24,7 @@ export class AppComponent {
       {label: 'Users', icon: 'pi pi-users', routerLink: ['users']},
       {label: 'My Bag', icon: 'pi pi-shopping-cart', routerLink: ['carts']},
       {label: 'Log Out', icon: 'pi pi-sign-out', routerLink: ['logout']}
-    ]
+    ];
 
   };
 

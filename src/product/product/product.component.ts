@@ -89,9 +89,10 @@ export class ProductComponent implements OnInit {
     item.productId = product.id;
     item.userId = this.authService.authenticatedUser.id;
     item.price = product.price;
-    item.isSold = true;
-    item.isPayed = true;
-    item.total = product.price * item.quantity;
+    item.sold = false;
+    item.payed = false;
+    item.quantity = 1
+    item.total = item.price * item.quantity;
     console.log(item);
     console.log(item.total);
     this.cartService.addToCart(item);

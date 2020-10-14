@@ -12,21 +12,41 @@
   </ng-template>
   <ng-template pTemplate="body" let-cart>
     <tr>
-      <td>{{(cart.productId)}}</td>
+      <td>{{getProductName(cart.productId)}}</td>
       <td>{{cart.price}}</td>
       <td>
-        <p-inputNumber [(ngModel)]="value" [showButtons]="true"
-                       [min]="0" [max]=cart.quantity ></p-inputNumber>
-    </td>
-      <td>{{cart.total}}</td>
+        <input type="number" [(ngModel)]="value"
+                       [min]="0" [max]="50" />
+      </td>
+      <td>{{value * cart.price}}</td>
     </tr>
-    <p-button (click)="showDialog()" (onClick)="order(cart)" label="Order"></p-button>
+    <p-button (click)="showDialog()"
+              (onClick)="order(cart)" label="Order"></p-button>
   </ng-template>
-</p-table>
-<div class="total">
-<!--  <label>Total: </label>-->
-<!--  <button pButton type="button" label="View total" (click)="getTotalPrice()"></button>-->
-</div>
+  </p-table>
+
+<!--  <p-table [columns]="carts" [value]="products" styleClass="p-datatable-responsive-demo">-->
+<!--    <ng-template pTemplate="header" let-columns>-->
+<!--      <tr>-->
+<!--        <th *ngFor="let col of columns">-->
+<!--          {{col.header}}-->
+<!--        </th>-->
+<!--      </tr>-->
+<!--    </ng-template>-->
+<!--    <ng-template pTemplate="body" let-rowData let-columns="columns">-->
+<!--      <tr>-->
+<!--        <td *ngFor="let col of columns">-->
+<!--          <span class="p-column-title">{{col.header}}</span>-->
+<!--          {{rowData[col.field]}}-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--    </ng-template>-->
+<!--  </p-table>-->
+
+<!--  <div class="total">-->
+<!--    <label>Total: </label>-->
+<!--    <button pButton type="button" label="View total" (click)="getTotalPrice()"></button>-->
+<!--  </div> -->
 <p-dialog header="Thank you for ordering!" [(visible)]="display" [style]="{width: '50vw'}" [baseZIndex]="10000">
   <p>
     Your order number RO-82969662 is in progress and is about to be shipped. Enjoy your new jewelry on the city

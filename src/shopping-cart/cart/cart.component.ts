@@ -19,9 +19,8 @@ export class CartComponent implements OnInit {
   public value: number = 1;
   public products: Product[] = [];
   public carts: Cart[] = [];
-  public user: User[] = [];
+  public users: User[] = [];
   public item: Cart = new Cart();
-
 
   constructor(
     private router: Router,
@@ -32,20 +31,23 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.carts = this.service.getItems();
+    this.refreshList();
+  }
+
+  refreshList(): void {
     this.productService.getAll().subscribe(product => this.products = product);
-    this.userService.getAll().subscribe(user => this.user = user);
+    this.userService.getAll().subscribe(user => this.users = user);
+    this.carts = this.service.getItems();
   }
 
   order(cart: Cart): void {
+    cart.sold = true;
+    cart.payed = true;
     cart.quantity = this.value;
-      this.service.save(cart).subscribe(value => {
-      cart = value;
-    });
+    cart.total = cart.quantity * cart.price;
+    this.service.save(cart).subscribe(value => cart = value);
     this.service.clearCart();
-    console.log(cart)
-    console.log(this.item.quantity)
-
+    console.log(cart);
   }
 
   showDialog() {
@@ -56,11 +58,13 @@ export class CartComponent implements OnInit {
     this.router.navigateByUrl("");
   }
 
-  // getProductName(id: number): string {
-  //   const prod = this.products.find(product => product.id === id);
-  //   if (prod.id === 0) {
-  //     prod.name = 'N/A';
-  //   }
-  //   return prod ? prod.name : 'N/A';
-  // }
+  getProductName(id: number): string {
+    const prod = this.products.find(product =>{
+      product.id === id;
+      console.log(product.id);
+      if (prod.id === 0)
+        prod.name = 'N/A';
+    } );
+    return prod ? prod.name : 'N/A';
+  }
 }

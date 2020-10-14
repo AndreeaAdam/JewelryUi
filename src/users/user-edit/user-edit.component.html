@@ -1,15 +1,19 @@
 <div class="background">
-<div class="edit-user">
+  <div class="edit-user">
 
-  <label>User name<input type="text" pInputText [(ngModel)]="user.userName"/></label>
-  <label>Password<input type="password" pPassword  [(ngModel)]="user.password"/></label>
-  <label>First name<input type="text" pInputText [(ngModel)]="user.firstName"/></label>
-  <label>Last name<input type="text" pInputText [(ngModel)]="user.lastName"/></label>
-  <label>Telephone<input type="text" pInputText [(ngModel)]="user.telephone"/></label>
-  <label>Email<input type="text" pInputText [(ngModel)]="user.email"/></label>
-  <label>Is administrator<p-checkbox [(ngModel)]="user.administrator" [binary]='false' *ngIf="authService.authenticatedUser"></p-checkbox></label>
+    <label>User name<input type="text" pInputText [(ngModel)]="user.userName"/></label>
+    <label>Password<input type="password" pPassword [(ngModel)]="user.password"/></label>
+    <label>First name<input type="text" pInputText [(ngModel)]="user.firstName"/></label>
+    <label>Last name<input type="text" pInputText [(ngModel)]="user.lastName"/></label>
+    <label>Telephone<input type="text" pInputText [(ngModel)]="user.telephone"/></label>
+    <label>Email<input type="text" pInputText [(ngModel)]="user.email"/></label>
+    <label>Is administrator
+      <p-checkbox [(ngModel)]="user.administrator" *ngIf="authService.authenticatedUser"></p-checkbox>
+    </label>
 
+  </div>
   <button pButton type="button" label="Save" (click)="save()"></button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button pButton type="button" label="Cancel" (click)="cancel()"></button>
 </div>
-</div>
+

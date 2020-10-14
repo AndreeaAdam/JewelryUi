@@ -1,18 +1,4 @@
-input[type=text] {
-  width: 300px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  text-align: center;
-}
-label {
-  width: 150px;
-  text-align: center;
-  padding-top: 10px;
-}
-.edit-user {
+.background{
   height: 100vh;
   width: 100%;
   background-size: contain;
@@ -29,7 +15,29 @@ button {
   border: none;
   cursor: pointer;
   width: 80px;
+  left: 30%;
 }
 button:hover {
   opacity: 0.8;
+}
+label{
+  width: 150px;
+  padding-right: 100%;
+  text-align: center;
+}
+input {
+  width: 250px;
+  text-align: center;
+  padding-top: 10px;
+  justify-self: center;
+}
+.edit-user {
+  display: flex;
+  flex-flow: row wrap;
+  width: 45%;
+  padding-top: 50px;
+  justify-self: center;
+  align-self: center;
+  margin: auto;
+  text-align: center;
 }
