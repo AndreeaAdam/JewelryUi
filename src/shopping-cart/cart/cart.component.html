@@ -3,7 +3,7 @@
   <p-table [value]="carts">
   <ng-template pTemplate="header">
     <tr>
-      <th>Name</th>
+      <th>Product id</th>
       <th>Price</th>
       <th>Quantity</th>
       <th>Total</th>
@@ -11,38 +11,20 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-cart>
-    <tr>
-      <td>{{getProductName(cart.productId)}}</td>
-      <td>{{cart.price}}</td>
+    <tr >
+      <td>{{(cart.productId)}}</td>
+      <td>{{cart.price | currency : '$'}}</td>
       <td>
         <input type="number" [(ngModel)]="value"
-                       [min]="0" [max]="50" />
+                       [min]="0" [max]="cart.quantity" />
       </td>
-      <td>{{value * cart.price}}</td>
+      <td>{{value * cart.price | currency : '$'}}</td>
     </tr>
-    <p-button (click)="showDialog()"
-              (onClick)="order(cart)" label="Order"></p-button>
   </ng-template>
+
   </p-table>
-
-<!--  <p-table [columns]="carts" [value]="products" styleClass="p-datatable-responsive-demo">-->
-<!--    <ng-template pTemplate="header" let-columns>-->
-<!--      <tr>-->
-<!--        <th *ngFor="let col of columns">-->
-<!--          {{col.header}}-->
-<!--        </th>-->
-<!--      </tr>-->
-<!--    </ng-template>-->
-<!--    <ng-template pTemplate="body" let-rowData let-columns="columns">-->
-<!--      <tr>-->
-<!--        <td *ngFor="let col of columns">-->
-<!--          <span class="p-column-title">{{col.header}}</span>-->
-<!--          {{rowData[col.field]}}-->
-<!--        </td>-->
-<!--      </tr>-->
-<!--    </ng-template>-->
-<!--  </p-table>-->
-
+  <p-button (click)="showDialog()"
+            (onClick)="order(this.carts)" label="Order"></p-button>
 <!--  <div class="total">-->
 <!--    <label>Total: </label>-->
 <!--    <button pButton type="button" label="View total" (click)="getTotalPrice()"></button>-->

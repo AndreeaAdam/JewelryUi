@@ -21,6 +21,7 @@ export class CartComponent implements OnInit {
   public carts: Cart[] = [];
   public users: User[] = [];
   public item: Cart = new Cart();
+  private product: Product;
 
   constructor(
     private router: Router,
@@ -40,14 +41,15 @@ export class CartComponent implements OnInit {
     this.carts = this.service.getItems();
   }
 
-  order(cart: Cart): void {
+  order(carts: Cart[]): void {
+    let cart: Cart = new Cart();
     cart.sold = true;
     cart.payed = true;
     cart.quantity = this.value;
     cart.total = cart.quantity * cart.price;
     this.service.save(cart).subscribe(value => cart = value);
     this.service.clearCart();
-    console.log(cart);
+    console.log(carts)
   }
 
   showDialog() {
@@ -59,12 +61,16 @@ export class CartComponent implements OnInit {
   }
 
   getProductName(id: number): string {
-    const prod = this.products.find(product =>{
+    const prod = this.products.find(product => {
       product.id === id;
-      console.log(product.id);
       if (prod.id === 0)
         prod.name = 'N/A';
-    } );
+    });
     return prod ? prod.name : 'N/A';
   }
+
+  total(): number {
+    return this.carts.reduce((sum, prod) => sum += prod.price ,0);
+  }
+
 }

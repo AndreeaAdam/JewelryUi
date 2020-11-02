@@ -8,13 +8,15 @@ export abstract class ApiService<T extends GenericModel> {
   protected http: HttpClient;
   protected endpoint = '';
 
- constructor(http: HttpClient) {
+  constructor(http: HttpClient) {
     this.http = http;
   }
 
-  public getAllPage(page = 0, pageSize = 4): Observable<Page<T>> {
-    return this.http.get<Page<T>>(this.API_SERVICE + this.endpoint + `?page=${page}&rowsPerPage=${pageSize}`); // back tick
+  public getAllPage(pageNr = 0, pageSize = 100): Observable<Page<T>> {
+    return this.http.get<Page<T>>(this.API_SERVICE + this.endpoint + `?pageNr=${pageNr}&pageSize=${pageSize}`); // back tick
+
   }
+
   public getAll(): Observable<T[]> {
     const url = this.API_SERVICE + this.endpoint;
     return this.http.get<T[]>(url);
@@ -39,5 +41,7 @@ export abstract class ApiService<T extends GenericModel> {
     const url = this.API_SERVICE + this.endpoint + '/' + id;
     return this.http.delete<T>(url);
   }
-  public beforeSave(item: T): void {}
+
+  public beforeSave(item: T): void {
+  }
 }

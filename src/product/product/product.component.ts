@@ -41,13 +41,13 @@ export class ProductComponent implements OnInit {
     this.refreshList();
   }
 
-  refreshList(page = 0, rowsPerPage = 4): void {
+  refreshList(pageNr = 0, pageSize = 100): void {
     this.categoriesService.getAll().subscribe(categories => this.categories = categories);
     this.gendersService.getAll().subscribe(genders => this.genders = genders);
     this.service.getAllPage().subscribe(value => this.productsPage = value);
     this.categoriesService.getAll().subscribe(categories => {
       this.categories = categories;
-      this.service.getAllPage(page, rowsPerPage).subscribe(value => this.productsPage = value);
+      this.service.getAllPage(pageNr, pageSize).subscribe(value => this.productsPage = value);
 
     });
   }
@@ -85,24 +85,18 @@ export class ProductComponent implements OnInit {
 
   addToShoppingCart(product: Product): void {
     let item: Cart = new Cart();
-
     item.productId = product.id;
     item.userId = this.authService.authenticatedUser.id;
     item.price = product.price;
     item.sold = false;
     item.payed = false;
-    item.quantity = 1
-    item.total = item.price * item.quantity;
+    item.quantity = product.quantity;
     console.log(item);
-    console.log(item.total);
     this.cartService.addToCart(item);
   }
 
   loadProducts(event: LazyLoadEvent): void {
-    this.loading = true;
     this.refreshList(event.first / event.rows, event.rows);
-    this.loading = false;
-
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="users">
   <div class="user">
-    <button pButton type="button" label="Add" (click)="add()"></button>
+    <button pButton type="button" label="Add"  *ngIf="authService.authenticatedUser.administrator === true" (click)="add()"></button>
     <p-table class="ptable" [value]="users">
       <ng-template pTemplate="header">
         <tr>
@@ -11,7 +11,7 @@
           <th>Telephone</th>
           <th>Email</th>
           <th>Is administrator</th>
-          <th>Action</th>
+          <th *ngIf="authService.authenticatedUser.administrator === true">Action</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-user>
@@ -24,7 +24,7 @@
           <td>{{user.email}}</td>
           <td>{{user.isAdministrator}}</td>
           <td>
-            <div *ngIf="authService.authenticatedUser">
+            <div *ngIf="authService.authenticatedUser.administrator === true">
               <button pButton type="button" label="Edit" [routerLink]="'/users-edit/' + user.id"></button>
               <button pButton type="button" label="Delete"  (click)="delete(user.id)"></button>
             </div>

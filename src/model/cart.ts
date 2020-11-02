@@ -1,4 +1,6 @@
 import {GenericModel} from "./generic-model";
+import {Product} from "./product";
+import {User} from "./user";
 
 export class Cart extends GenericModel{
   public quantity :number;
@@ -9,4 +11,7 @@ export class Cart extends GenericModel{
 
   public productId: number;
   public userId: number;
+
+  public product: Product;
+  public user: User;
 }
